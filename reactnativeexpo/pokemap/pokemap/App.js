@@ -32,7 +32,8 @@ export default class App extends React.Component {
         <SignIn signIn={this.signIn}/>
         )
       } else if(this.state.loggedIn) {
-        <PokeMap />
+        // console.log('pokemap now');
+        <PokeMap flipLogin={this.flipLogin} />
     }
   }
 
@@ -56,8 +57,8 @@ export default class App extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        {/* {this.renderView()} */}
-        <PokeMap />
+        {this.renderView()}
+        {/* <PokeMap flipLogin={this.flipLogin}/> */}
       </View>
     );
   }

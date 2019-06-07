@@ -44,9 +44,10 @@ Meteor.methods({
     },
 
     'pokemon.subtract': function(x){
-        if (!user){
-            console.log('user not signed in');
-            return;
-        }
+        // if (!user){
+        //     console.log('user not signed in');
+        //     return;
+        // }
+        return Pokemon.remove(x);
     }
 })

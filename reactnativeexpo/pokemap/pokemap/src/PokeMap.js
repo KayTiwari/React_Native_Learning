@@ -38,6 +38,21 @@ class PokeMap extends Component{
         })
     }
 
+    removePokemon = () => {
+        if (this.props.pokemon.length === 0){
+            return;
+        } else {
+        var remove = this.props.pokemon[0]._id;
+        Meteor.call('pokemon.subtract', remove, (err, res)=> {
+            console.log('remove function', err, res)
+        })
+    }
+    }
+
+    logOut = () => {
+        Meteor.logout();
+        this.props.flipLogin(false);
+    }
 
     render(){
         // console.log(this.props.pokemon)
@@ -50,7 +65,7 @@ class PokeMap extends Component{
                         <Title>PokeMap</Title>
                     </Body>
                     <Right>
-                        <Button transparent>
+                        <Button onPress={() => this.logOut()} transparent>
                             <Icon name='power'/>
                         </Button>
                     </Right>
@@ -66,7 +81,7 @@ class PokeMap extends Component{
                 <Fab direction='left' position='bottomRight'  onPress={() =>this.addPokemon()}>
                 <Icon name='add' />
                 </Fab>
-                <Fab direction='right' position='bottomLeft' >
+                <Fab direction='right' position='bottomLeft' onPress={() =>this.removePokemon()}>
                 <Icon name='remove' />
                 </Fab>
             </View>
