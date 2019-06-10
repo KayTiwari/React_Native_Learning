@@ -40,7 +40,7 @@ const styles = {
             fontWeight: '600'
         },
         toolbar: {
-            backgroundColor: '#fff',
+            backgroundColor: '#333',
             height: 22
         }
 }
